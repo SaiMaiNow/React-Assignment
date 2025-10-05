@@ -1,28 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-//prop-types เป็นการตรวจสอบประเภทของ props ที่ส่งเข้ามา
 
 function Product({ item }) {
-  let productImage = '';//ป้องกัน er เถ้าไม่มีภาพ
-
-  if (item.imageURL) {//ถ้ามีค่ารันต่อ
-    if (item.imageURL.startsWith('http') || item.imageURL.startsWith('https')) { //
-      productImage = item.imageURL; // ใช้ URL ภายนอกตรงๆ 
-      //https://placehold.co/200x200/cccccc/ffffff/png
-    } else {
-      try {
-        productImage = require(`../../assets/${item.imageURL}`);
-        //watch.jpg
-      } catch (err) {
-        console.warn(`Image not found: ${item.imageURL}`, err);
-        productImage = require('../../assets/default.jpg');
-      }
-    }
-  } else {
-    console.log(`item.imageURL is missing or falsy (value: ${item.imageURL}), using default placeholder.`);
-        productImage = require('../../assets/default2.jpg');
-
-  }
+  const productImage = require(`../../assets/${item.imageURL}`);
   return (
     <li className="Products">
       <a href={`/update-product/${item.id}`}>

@@ -9,10 +9,6 @@ function AddForm({ addProduct }) {
   function onSubmit(event) {
     event.preventDefault();
     addProduct({ name, type, imageURL });
-      // รีเซ็ตค่า input
-      setName('');
-      setImageURL('');
-      setType('');
   }
 
   return (
@@ -26,7 +22,6 @@ function AddForm({ addProduct }) {
             type="text"
             id="name"
             value={name}
-            placeholder="Enter product name" 
             onChange={(event) => setName(event.target.value)}
           />
         </div>
@@ -38,7 +33,6 @@ function AddForm({ addProduct }) {
             type="text"
             id="imageURL"
             value={imageURL}
-             placeholder="Enter image URL"
             onChange={(event) => setImageURL(event.target.value)}
           />
         </div>
@@ -50,7 +44,6 @@ function AddForm({ addProduct }) {
             type="text"
             id="type"
             value={type}
-              placeholder="Enter product type"
             onChange={(event) => setType(event.target.value)}
           />
         </div>
