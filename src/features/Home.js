@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 // import data from '../app/data';
@@ -15,14 +15,16 @@ export default function Home() {
     setProducts([...products, newProduct]);
   }
 
-  async function getProducts() {
-    const products = await axios.get(
-      'https://apimocha.com/react-redux-class/products'
-    );
-    setProducts(products.data);
-  }
+  useEffect(() => {
+    async function getProducts() {
+      const products = await axios.get(
+        'https://apimocha.com/react-redux-class/products'
+      );
+      setProducts(products.data);
+    }
 
-  getProducts();
+    getProducts();
+  }, []);
 
   return (
     <>
