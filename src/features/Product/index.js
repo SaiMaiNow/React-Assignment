@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-function Product({ item }) {
+function Product({ item, className }) {
   const productImage = require(`../../assets/${item.imageURL}`);
   return (
-    <li className="Products">
+    <li className={className}>
       <a href={`/update-product/${item.id}`}>
         <img className="Products__image" src={productImage} alt={item.name} />
         <div className="Products__name">{item.name}</div>
